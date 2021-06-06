@@ -2,14 +2,6 @@
 
 $signal = 'red';
 
-// if ($signal === 'red') {
-//   echo 'Stop!' . PHP_EOL;
-// } elseif ($signal === 'yellow') {
-//   echo 'Caution!' . PHP_EOL;
-// } elseif ($signal === 'blue'){
-//   echo 'Go!' . PHP_EOL;
-// }
-
 switch ($signal) {
   case 'red':
     echo 'Stop!' . PHP_EOL;
@@ -18,6 +10,11 @@ switch ($signal) {
     echo 'Caution!' . PHP_EOL;
   break;
   case 'blue':
+  case 'green':
     echo 'Go!' . PHP_EOL;
   break;
+  default:
+    echo 'Wrong Signal' . PHP_EOL;
+  break;
+
 }
