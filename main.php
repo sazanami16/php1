@@ -1,10 +1,19 @@
 <?php 
-// $name = 'tanaka';
 
-// define('NAME', 'hayashi'); defineで値を再定義できる。
-// define('NAME', 'tanabe'); define同士は再定義できない。
+$a = 'hello';
+$b = 10;
+$c = -1.3;
+$d = null;
+$e = true;
 
-const NAME = 'hayashi'; //constもdefineと同様。
-const NAME = 'tanabe';
+// var_dump($a);
+// var_dump($b);
+// var_dump($c);
+// var_dump($d);
+// var_dump($e);
 
-echo NAME . PHP_EOL;
+$a = (float)10;
+$b = (string)1.3;
+
+var_dump($a);
+var_dump($b);
