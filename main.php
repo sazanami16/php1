@@ -1,20 +1,16 @@
 <?php
 
-$moreScores = [
-   55,
-   72,
-   'perfect',
-   [90, 42, 88],
-];
+// function sum($a, $b, $c) 
+function sum(...$numbers) //可変長引数という。
+{
+  // return $a + $b + $c;
+  $total = 0;
+  foreach ($numbers as $number) {
+    $total += $number;
+  }
 
-$scores = [
-   90,
-   40,
-   ...$moreScores,
-   100,
-];
+  return $total;
+}
 
-// print_r($scores);
-
-echo $scores[5][2];
-
+echo sum(1, 3, 5) .PHP_EOL;
+echo sum(4, 2, 5, 1) .PHP_EOL;
