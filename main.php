@@ -1,11 +1,13 @@
 <?php
 
-declare(strict_types=1); 
+$scores = [
+  'first'=> 90,
+  'second'=> 40,
+  'third'=> 100,
+];
 
-function getAward(?int $score): ?string //「?」をつけると「null」か「string」で型付けを判断する。引数にも設定できる。「null」かしか判断できない。
-{
-  return $score >= 100 ? 'Gold Medal' : null; //条件演算子
-}
+var_dump($scores); //配列の中身、型が表示される。
+print_r($scores); //配列の中身をわかりやすく表示する。
 
-echo getAward(150) . PHP_EOL;
-echo getAward(40) . PHP_EOL;
+
+echo $scores['third'] . PHP_EOL;
