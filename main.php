@@ -1,12 +1,12 @@
 <?php 
 
-$score = 40;
+$score = 60;
+$name = 'tanaka';
 
-if ($score >= 80) {
-  echo 'Great!' . PHP_EOL;
-} elseif ($score >=60) {
-  echo 'Good!' . PHP_EOL;
-} else {
-  echo 'OK!' . PHP_EOL;
+if ($score >= 50 && $name === 'tanaka') {
+    echo 'Great!' . PHP_EOL;
 }
 
+// 「&&」で「and」
+// 「||」で「or」
+// 「!」で「〜ではない」
