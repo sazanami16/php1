@@ -1,20 +1,6 @@
 <?php
 
-$signal = 'red';
-
-switch ($signal) {
-  case 'red':
-    echo 'Stop!' . PHP_EOL;
-  break;
-  case 'yellow':
-    echo 'Caution!' . PHP_EOL;
-  break;
-  case 'blue':
-  case 'green':
-    echo 'Go!' . PHP_EOL;
-  break;
-  default:
-    echo 'Wrong Signal' . PHP_EOL;
-  break;
-
+for ($i = 1; $i <= 5; $i++) {
+  // echo 'Hello' . PHP_EOL;
+  echo "$i - Hello" . PHP_EOL;
 }
