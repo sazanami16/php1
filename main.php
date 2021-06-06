@@ -1,16 +1,18 @@
 <?php
 
-// function sum($a, $b, $c) 
-function sum(...$numbers) //可変長引数という。
+function getStats(...$numbers) //$numbers = [1, 3, 5]と考えられる。
 {
-  // return $a + $b + $c;
   $total = 0;
   foreach ($numbers as $number) {
     $total += $number;
   }
-
-  return $total;
+  return [$total, $total / count($numbers)]; //返り値を配列にして戻すことができる。[$total //(← $sum), $total / count($numbers) //(← $average)]
 }
 
-echo sum(1, 3, 5) .PHP_EOL;
-echo sum(4, 2, 5, 1) .PHP_EOL;
+// print_r(getStats(1, 3, 5));
+
+list($sum, $average) = getStats(1, 3, 5); //「list」によって、分割代入ができるので、()内の要素をそれぞれの変数に戻すことができる。
+[$sum, $average] = getStats(1, 3, 5); //上記の「list」と同じ処理を行う。
+
+echo $sum . PHP_EOL;
+echo $average . PHP_EOL;
