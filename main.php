@@ -1,19 +1,12 @@
 <?php 
 
-$a = 'hello';
-$b = 10;
-$c = -1.3;
-$d = null;
-$e = true;
+$score = 40;
 
-// var_dump($a);
-// var_dump($b);
-// var_dump($c);
-// var_dump($d);
-// var_dump($e);
+if ($score >= 80) {
+  echo 'Great!' . PHP_EOL;
+} elseif ($score >=60) {
+  echo 'Good!' . PHP_EOL;
+} else {
+  echo 'OK!' . PHP_EOL;
+}
 
-$a = (float)10;
-$b = (string)1.3;
-
-var_dump($a);
-var_dump($b);
