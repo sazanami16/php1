@@ -1,8 +1,6 @@
 <?php 
-// comment
-#comment
-/*
-改行できるコメント
-*/
-echo 'Hello World' . PHP_EOL;
-echo 'Hello Taguchi' . PHP_EOL;
+$name = 'tanaka';
+$world = 'World';
+
+echo 'Hello ' . $name . PHP_EOL;
+echo 'Hello ' . $world . PHP_EOL;
