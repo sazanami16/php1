@@ -1,15 +1,20 @@
 <?php
 
-$scores = [
-  'first'=> 90,
-  'second'=> 40,
-  'third'=> 100,
+$moreScores = [
+   55,
+   72,
+   'perfect',
+   [90, 42, 88],
 ];
 
-foreach ($scores as $score) { //バリューのみ表示。
-  echo $score . PHP_EOL;
-}
+$scores = [
+   90,
+   40,
+   ...$moreScores,
+   100,
+];
 
-foreach ($scores as $key => $score) { //キーとバリューの表示。
-  echo $key . '-' . $score . PHP_EOL;
-}
+// print_r($scores);
+
+echo $scores[5][2];
+
