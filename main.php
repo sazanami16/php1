@@ -1,9 +1,16 @@
 <?php 
 $name = 'tanaka';
-$world = 'World';
 
-echo 'Hello ' . $name . PHP_EOL;
-echo "IT's \"Hello\" .\t Hello $world" . PHP_EOL; 
-// 「\"\"」で""内でダブルクオテーションwp扱える。
-// tabを設定したい場合は、「\t」を使う。
+  // $text = <<<'EOT' ← now document 変数を展開しない記述(変数を埋め込むことはできない)
 
+  // $text = <<<"EOT" ← here document 変数を展開する記述(変数を埋め込むことができる)
+  // $text = <<<EOT ← here document 変数を展開する記述(変数を埋め込むことができる)
+  
+  $text = <<<EOT 
+
+  hello! $name
+   this is long!
+  text! 
+  EOT;
+
+echo $text;
