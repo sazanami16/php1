@@ -6,8 +6,10 @@ $scores = [
   'third'=> 100,
 ];
 
-var_dump($scores); //配列の中身、型が表示される。
-print_r($scores); //配列の中身をわかりやすく表示する。
+foreach ($scores as $score) { //バリューのみ表示。
+  echo $score . PHP_EOL;
+}
 
-
-echo $scores['third'] . PHP_EOL;
+foreach ($scores as $key => $score) { //キーとバリューの表示。
+  echo $key . '-' . $score . PHP_EOL;
+}
