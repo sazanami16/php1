@@ -1,11 +1,8 @@
 <?php
 
-$input = 'Call us at 03-3001-1256 or 03-3015-3222';
-$pattern = '/\d{2}-\d{4}-\d{4}/';
+$d = [2020, 11, 15];
+echo "$d[0]-$d[1]-$d[2]" . PHP_EOL;
+echo implode('-', $d) . PHP_EOL; //配列の要素を文字列にする。
 
-preg_match($pattern, $input, $matches); //最初に見つかった結果を表示する。
-preg_match_all($pattern, $input, $matches); //全ての見つかった結果を表示する。
-print_r($matches); //指定した変数に関する情報を解りやすく出力する。
-
-$input = preg_replace($pattern, '**-****-****', $input); //パターンに応じて置換できる処理。
-echo $input . PHP_EOL;
+$t = '17:32:45';
+print_r(explode(':', $t)); //文字列を配列にする。
