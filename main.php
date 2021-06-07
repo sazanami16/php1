@@ -1,12 +1,13 @@
 <?php
 
-$scores = [40, 50, 20, 30];
-sort($scores); //昇順に並び替える。
+$scores = array_fill(0, 5, 10); //左記の場合、[0]から[5]の配列を「10」の要素で埋める処理。
+$scores = range(1, 10); //左記の場合、[0]から[9]の配列にそれぞれ「1」から「10」の値を入れる処理。
+$scores = range(1, 10, 2); //左記の場合、1~10までの数値を「2」刻みで値を入れる処理。
+
 print_r($scores);
 
-shuffle($scores); //ランダムに並び替える。
-print_r($scores);
+echo array_sum($scores) . PHP_EOL; //配列内の合計。
+echo max($scores) . PHP_EOL; //配列内の最大値。
+echo min($scores) . PHP_EOL; //配列内の最小値。
+echo array_sum($scores) / count($scores) . PHP_EOL; //配列内の平均値。
 
-$picked = array_rand($scores, 2); //ランダムに()内で指定した配列の「キー」の情報を取り出す。
-echo $scores[$picked[0]] . PHP_EOL; //バリューを取り出したい場合は、[インデックス]で取り出す。
-echo $scores[$picked[1]] . PHP_EOL;
