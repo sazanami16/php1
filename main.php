@@ -1,22 +1,20 @@
 <?php
 
-$data = [
-  ['name' => 'taguchi', 'score' => 80],
-  ['name' => 'kikuchi', 'score' => 60],
-  ['name' => 'hayashi', 'score' => 70],
-  ['name' => 'tamachi', 'score' => 60],
-];
+$fp = fopen('names.txt', 'w'); //'w'は「write」で書き込みができる。
+$fp = fopen('names.txt', 'a'); //'a'は「append」で追記できる。
+$fp = fopen('names.txt', 'r'); 
+$contents = fread($fp, filesize('names.txt'));
 
-$scores = array_column($data, 'score'); //scoreのカラムを作成している。
-$names = array_column($data, 'name'); //nameのカラムを作成している。
+// fwrite($fp, "taro\n"); //UNIX環境の開業は「\n」。
+// fwrite($fp, "jiro\n"); //UNIX環境の開業は「\n」。
+// fwrite($fp, "saburo\n");
 
-// print_r($scores);
-// print_r($names);
+fclose($fp);
+echo $contents;
 
-array_multisort(
-  $scores, SORT_DESC, SORT_NUMERIC,
-  $names, SORT_DESC, SORT_STRING,
-  $data
-);
+$fp = fopen('names.txt', 'r');
+while (($line = fgets($fp)) !== false) {
+  echo $line;
+}
 
-print_r($data);
+fclose($fp);
