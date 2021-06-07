@@ -1,26 +1,26 @@
 <?php
 
-$scores = [
-  'taguchi' => 80,
-  'hayashi' => 70,
-  'kikuchi' => 60,
+// $scores = [
+//   'taguchi' => 80,
+//   'hayashi' => 70,
+//   'kikuchi' => 60,
+// ];
+
+$data = [
+  ['name' => 'taguchi', 'score' => 80],
+  ['name' => 'kikuchi', 'score' => 60],
+  ['name' => 'hayashi', 'score' => 70],
+  ['name' => 'tamachi', 'score' => 60],
 ];
 
-sort($scores); //バリューの値を昇順でソート。ただし、キー情報が出力されない。
-print_r($scores);
+usort(
+  $data,
+  function ($a, $b) {
+    if ($a['score'] === $b['score']) {
+      return 0;
+    }
+    return $a['score'] > $b['score'] ? 1 : -1;
+  }
+);
 
-rsort($scores); //バリューの値を降順でソート。ただし、キー情報が出力されない。
-print_r($scores);
-
-asort($scores); //バリューの値を昇順でソート。キー情報も出力される。
-print_r($scores);
-
-arsort($scores); //バリューの値を降順でソート。キー情報も出力される。
-print_r($scores);
-
-ksort($scores); //キーの値を昇順でソート。バリューの値も出力される。
-print_r($scores);
-
-krsort($scores); //キーの値を降順でソート。バリューの値も出力される。
-print_r($scores);
-
+print_r($data);
