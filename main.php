@@ -1,13 +1,20 @@
 <?php
 
-$scores = array_fill(0, 5, 10); //左記の場合、[0]から[5]の配列を「10」の要素で埋める処理。
-$scores = range(1, 10); //左記の場合、[0]から[9]の配列にそれぞれ「1」から「10」の値を入れる処理。
-$scores = range(1, 10, 2); //左記の場合、1~10までの数値を「2」刻みで値を入れる処理。
+$a = [3, 4, 8, 9];
+$b = [4, 8, 12, 14];
 
-print_r($scores);
+$merged = array_merge($a, $b); //各配列を結合させる処理。
+// $merged = [...$a, ...$b];
+print_r($merged);
 
-echo array_sum($scores) . PHP_EOL; //配列内の合計。
-echo max($scores) . PHP_EOL; //配列内の最大値。
-echo min($scores) . PHP_EOL; //配列内の最小値。
-echo array_sum($scores) / count($scores) . PHP_EOL; //配列内の平均値。
+$uniques = array_unique($merged); //各配列の一意の値を出力させる処理。
+print_r($uniques);
 
+$diff1 = array_diff($a, $b); //左記の場合、$aの配列と$bの配列の値を比較し、$aにしかない値を出力。
+print_r($diff1);
+
+$diff2 = array_diff($b, $a); //左記の場合、$bの配列と$aの配列の値を比較し、$bにしかない値を出力。
+print_r($diff2);
+
+$common = array_intersect($a, $b); //左記の場合、$aと$bの配列の値を比較し、共通する値を出力。
+print_r($common);
