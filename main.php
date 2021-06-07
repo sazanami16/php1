@@ -6,19 +6,21 @@ $scores = [
   'kikuchi' => 60,
 ];
 
-$keys = array_keys($scores); //キーのみ取り出す処理。
-print_r($keys);
+sort($scores); //バリューの値を昇順でソート。ただし、キー情報が出力されない。
+print_r($scores);
 
-$values = array_values($scores); //バリューのみ取り出す処理。
-print_r($values);
+rsort($scores); //バリューの値を降順でソート。ただし、キー情報が出力されない。
+print_r($scores);
 
-if (array_key_exists('taguchi', $scores) === true) { //配列内に該当のキーが存在するか調べる処理。
-  echo 'taguchi is here!' . PHP_EOL;
-}
+asort($scores); //バリューの値を昇順でソート。キー情報も出力される。
+print_r($scores);
 
-if (in_array(80, $scores) === true) { //配列内に該当の値が存在するか調べる処理。
-  echo '80 is here!' . PHP_EOL;
-}
+arsort($scores); //バリューの値を降順でソート。キー情報も出力される。
+print_r($scores);
 
+ksort($scores); //キーの値を昇順でソート。バリューの値も出力される。
+print_r($scores);
 
-echo array_search(70, $scores) . PHP_EOL; //値を検索して対応するキーを調べる処理。
+krsort($scores); //キーの値を降順でソート。バリューの値も出力される。
+print_r($scores);
+
