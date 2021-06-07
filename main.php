@@ -1,8 +1,12 @@
 <?php
 
-$scores = [30, 40, 50, 60, 70, 80];
-array_splice($scores, 2, 3);             //array_splice(配列, 位置, 個数)。配列の要素を削除できる。
-array_splice($scores, 2, 3, 100);        //array_splice(配列, 位置, 個数, 要素)。配列の要素を削除して、新しい要素を追加できる。
-array_splice($scores, 2, 0, [100, 110]); //array_splice(配列, 位置, 個数, [要素, 要素])。要素を複数追加する場合は、[]をつけて指定する必要がある。
-
+$scores = [40, 50, 20, 30];
+sort($scores); //昇順に並び替える。
 print_r($scores);
+
+shuffle($scores); //ランダムに並び替える。
+print_r($scores);
+
+$picked = array_rand($scores, 2); //ランダムに()内で指定した配列の「キー」の情報を取り出す。
+echo $scores[$picked[0]] . PHP_EOL; //バリューを取り出したい場合は、[インデックス]で取り出す。
+echo $scores[$picked[1]] . PHP_EOL;
