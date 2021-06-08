@@ -1,5 +1,21 @@
 <?php
 
+trait LikeTrait
+{
+  private $likes = 0;
+
+  public function like() 
+  {
+    $this->likes++;
+  }
+}
+
+
+interface LikeInterface  //実装を含めてはいけない
+{
+  public function like();
+}
+
 abstract class BasePost //抽象クラス
 {
   abstract public function show(); //抽象メソッド
@@ -12,14 +28,17 @@ abstract class BasePost //抽象クラス
   }
 }
 
-class Post extends BasePost
+
+class Post extends BasePost implements LikeInterface
 {
+  use LikeTrait;
 
   public function show()
   {
-    printf('%s' . PHP_EOL, $this->text);
+    printf('%s (%d)' . PHP_EOL, $this->text, $this->likes);
   }
 }
+
 
 class SponsoredPost extends BasePost
 {
@@ -37,9 +56,12 @@ class SponsoredPost extends BasePost
   }
 }
 
-class PremiumPost extends BasePost
+
+class PremiumPost extends BasePost implements LikeInterface
 {
   private $price;
+
+  use LikeTrait;
   
   public function __construct($text, $price)
   {
@@ -49,15 +71,25 @@ class PremiumPost extends BasePost
   
   public function show()
   {
-    printf('%s [%d JPY]' . PHP_EOL, $this->text, $this->price);
+    printf('%s (%d) [%d JPY]' . PHP_EOL, $this->text, $this->likes, $this->price);
   }
 }
+
 
 $posts = [];
 $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
 $posts[2] = new SponsoredPost('hello hello', 'tanaka');
 $posts[3] = new PremiumPost('hello world', 300);
+
+function processLikeable(LikeInterface $likeable)
+{
+  $likeable->like();
+}
+
+processLikeable($posts[0]);
+processLikeable($posts[3]);
+
 function processPost(BasePost $post)
 {
   $post->show();
