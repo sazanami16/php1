@@ -1,40 +1,48 @@
 <?php
 
-////クラス
-class Post
+class Post //継承元のクラス（親クラス）
 {
-//プロパティ
-  private $text; //「public」,「private」はアクセス修飾子。デフォルトでは「public」
-  private static $count = 0;
-  public const VERSION = 0.1;
+  protected $text; //「protected」によって継承したクラス内でも使用できる。クラス外では使用不可。
 
-  public function __construct(string $text)
+  public function __construct($text)
   {
     $this->text = $text;
-    self::$count++;
   }
 
-//メソッド
-  public function show()
+  final public function show() //「final」をつけてオーバーライドを防ぐ。
   {
     printf('%s' . PHP_EOL, $this->text);
   }
+}
 
-  public static function showInfo()
+class SponsoredPost extends Post //継承先のクラス(子クラス)
+{
+  private $sponsor;
+
+  public function __construct($text, $sponsor)
   {
-    printf('Count: %d' . PHP_EOL, self::$count);
-    printf('VERSION: %.1f' . PHP_EOL, self::VERSION);
+    parent::__construct($text);
+    $this->sponsor = $sponsor;
+  }
+
+  public function showSponsor()
+  {
+    printf('%s' . PHP_EOL, $this->sponsor);
+  }
+
+  //メソッドのオーバーライド
+  public function show()
+  {
+    printf('%s by %s' . PHP_EOL, $this->text, $this->sponsor);
   }
 }
-////クラス
 
 $posts = [];
-$posts[0] = new Post('hello'); //インスタンス
-$posts[1] = new Post('hello again'); //インスタンス
+$posts[0] = new Post('hello');
+$posts[1] = new Post('hello again');
+$posts[2] = new SponsoredPost('hello world', 'tanabe');
 
 $posts[0]->show();
 $posts[1]->show();
-
-Post::showInfo();
-
-echo Post::VERSION . PHP_EOL;
+$posts[2]->show();
+$posts[2]->showSponsor();
