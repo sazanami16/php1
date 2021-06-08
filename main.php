@@ -1,20 +1,40 @@
 <?php
 
-$fp = fopen('names.txt', 'w'); //'w'は「write」で書き込みができる。
-$fp = fopen('names.txt', 'a'); //'a'は「append」で追記できる。
-$fp = fopen('names.txt', 'r'); 
-$contents = fread($fp, filesize('names.txt'));
+////クラス
+class Post
+{
+//プロパティ
+  private $text; //「public」,「private」はアクセス修飾子。デフォルトでは「public」
+  private static $count = 0;
+  public const VERSION = 0.1;
 
-// fwrite($fp, "taro\n"); //UNIX環境の開業は「\n」。
-// fwrite($fp, "jiro\n"); //UNIX環境の開業は「\n」。
-// fwrite($fp, "saburo\n");
+  public function __construct(string $text)
+  {
+    $this->text = $text;
+    self::$count++;
+  }
 
-fclose($fp);
-echo $contents;
+//メソッド
+  public function show()
+  {
+    printf('%s' . PHP_EOL, $this->text);
+  }
 
-$fp = fopen('names.txt', 'r');
-while (($line = fgets($fp)) !== false) {
-  echo $line;
+  public static function showInfo()
+  {
+    printf('Count: %d' . PHP_EOL, self::$count);
+    printf('VERSION: %.1f' . PHP_EOL, self::VERSION);
+  }
 }
+////クラス
 
-fclose($fp);
+$posts = [];
+$posts[0] = new Post('hello'); //インスタンス
+$posts[1] = new Post('hello again'); //インスタンス
+
+$posts[0]->show();
+$posts[1]->show();
+
+Post::showInfo();
+
+echo Post::VERSION . PHP_EOL;
