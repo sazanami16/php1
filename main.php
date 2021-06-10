@@ -1,6 +1,10 @@
 <?php
 
-echo 'Please Enter: ';
-$str = trim(fgets(STDIN));
-var_dump($str);
-
+$line = trim(fgets(STDIN));
+if ($line === 'OOOOO') {
+    echo 'O' . "\n";
+} elseif ($line === 'XXXXX') {
+    echo 'X' . "\n";
+} else {
+    echo 'D' . "\n";
+}
